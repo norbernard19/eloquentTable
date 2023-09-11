@@ -49,7 +49,7 @@
               <input class="input-form" type="text" name="mobile_number" id="mobile_number" placeholder="Mobile Number" value="{{$editStudent['mobile_number']}}">
             
               <label for="grades">Grades</label><br>
-              <input class="input-form" type="number" name="grades" id="grades" placeholder="Grades" value="{{$editStudent['grades']}}">
+              <input class="input-form" type="number" name="grades" id="grades" step="0.01" placeholder="Grades" value="{{number_format($editStudent['grades'], 2)}}">
               
               <label for="email">Email</label><br>
               <input class="input-form" type="email" name="email" id="email" placeholder="Email" value="{{$editStudent['email']}}">

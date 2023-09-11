@@ -50,7 +50,7 @@ class crudController extends Controller
                ->where('name', $request->name)
                ->ignore($old_student_number, 'id_number'),
          ],
-         'grades' => 'required|numeric|between:0,100',
+         'grades' => 'required|numeric|min:0|max:100',
          'email' => 'required|email|max:200'
       ];
 
