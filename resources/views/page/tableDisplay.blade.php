@@ -6,19 +6,18 @@
     <div class = "add-search">
         <form action="{{ route('search') }}" method="GET" >
             @csrf
-            
-            <select name="student_type" id="student_type" class="search">
-                <option value="">All Students</option>
-                <option value="local_student">Local Student</option>
-                <option value="foreign_student">Foreign Student</option>
-            </select>
-            
-            <button type="submit" class="search">Search</button>
+
+                <select name="student_type" id="student_type" class="search">
+                    <option value="">All Students</option>
+                    <option value="local_student">Local Student</option>
+                    <option value="foreign_student">Foreign Student</option>
+                </select>
+
+                <button type="submit" class="search">Filter</button>
         </form>
 
 
         <div class="button-add">
-            
             <div class="button1">
                 <a href="{{ route('add') }}" class="btn btn-secondary" id="button2">Add new Students</a>
             </div>
@@ -45,7 +44,7 @@
                 </tr>
             </thead>
             <tbody id="mytable">
-                
+
                 @foreach ($myArray as $student)
                 <tr>
                     <td class="content">{{ $student['student_type']}}</td>
@@ -57,27 +56,27 @@
                     <td class="content">{{ $student['mobile_number']  }}</td>
                     <td class="content">{{ number_format($student['grades'], 2) }}</td>
                     <td class="content">{{ $student['email'] }}</td>
-                    
+
                     <td>
                         <a href="{{route('edit', $student['id_number'])}}" class="edit-delete-button">Edit</a>
                     </td>
-                   
+
                     <td class="delete-td">
-                         
+
                         <form action="{{ route('delete', $student['id_number']) }}" method="POST" class="delete-form">
-                            @csrf 
-                            @method('DELETE')                   
+                            @csrf
+                            @method('DELETE')
                             <input class="edit-delete-button" id="delete-button" type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete this record?');">
                         </form>
-                        
+
                     </td>
                 </tr>
                 @endforeach
 
-              
+
             </tbody>
         </table>
     </div>
-    
+
 </div>
 @endsection

@@ -21,10 +21,10 @@
     <link href="{{ asset('/css/login.scss') }}" rel="stylesheet">
     <link href="{{ asset('/css/home.scss') }}" rel="stylesheet">
     <link rel="stylesheet" href="/css/layout.scss"/>
- 
+
 </head>
 <body>
-    
+
         <nav>
             <div class="logo">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -52,7 +52,7 @@
                  </a></li>
                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf
-                
+
                 </form>
             </ul>
            @endguest
@@ -99,17 +99,8 @@
     </script>
 @endif
 
-@if (session('status'))
-<script>
-    Swal.fire({
-    position: 'top-end',
-    icon: 'success',
-    title: 'Record deleted successfully',
-    showConfirmButton: false,
-    timer: 1500
-    })
-    </script>
-@endif
+
+
 
 
 </html>

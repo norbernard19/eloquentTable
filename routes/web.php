@@ -14,6 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
 Route::group(['middleware' => ['auth']], function () {
     Route::get('view_user', 'Controller@viewUser');
     Route::get('/index', 'userController@indexPage')->name('index');
@@ -25,6 +28,3 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/update/{old_id_number}/{old_student_type}', 'crudController@update')->name('update');
     Route::get('/search', 'crudController@search')->name('search');
 });
-Auth::routes();
-
-// Route::get('/home', 'HomeController@index')->name('home');
